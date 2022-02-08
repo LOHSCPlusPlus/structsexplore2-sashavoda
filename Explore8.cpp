@@ -30,7 +30,15 @@ Line::Line(Point s, Point e) {
 
 
 Point findLowestPoint(Line one){
- double lowestPoint = one.start.y;
+ Point lowestPoint;
+
+ if(one.start.y < one.end.y){
+   lowestPoint = one.start;
+ }
+ else{
+   lowestPoint = one.end;
+ }
+
 
   return lowestPoint; 
 }
@@ -57,14 +65,20 @@ Point FindMidPoint(Line l) {
 }
 
 int main() {
-  line b(Point(7,-9), Point(8,-15));
-  findLowestPoint(Line a, Line b){}
+  Line b(Point(7,-9), Point(8,-15));
+  cout << "Line b";
+  PrintLine(b);
+
+
+    Point lowestPoint = findLowestPoint(b);
+    cout << "Line b's lowest point is";
+    PrintPoint(lowestPoint);
+    cout << endl;
 
     Line a(Point(3,9), Point(12,22));
     cout << "Line a";
     PrintLine(a);
     cout << "Line a's midpoint";
-    cout << "Line a's shortest line is " << lowestPoint;
     // This is new
     Point midPoint = FindMidPoint(a);
     PrintPoint(midPoint);
