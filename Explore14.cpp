@@ -18,7 +18,7 @@ Pet::Pet() {
 }
 
 void printPet(Pet p) {
-    cout << p.petName << " is " << p.yearsOld << " years old";
+    cout << p.petName << " is " << p.yearsOld << " years old" << endl;
 }
 /**
 Read one letter at a time. If we reach the end of file while reading then return false.
@@ -44,9 +44,13 @@ Pet readPetFromFile(ifstream &file) {
 
 int main() {
     ifstream petFile("pets.txt");
-    while(petFile.peek() != EOF) {
-        Pet a =readPetFromFile(petFile);
-        printPet(a);
-        cout << endl;
+    Pet arrPets[5];
+    int index = 0;
+      while(petFile.peek() != EOF) {
+
+        arrPets[index] =readPetFromFile(petFile);
+        index++;
+    }for(int index = 4; index > 0; index--){
+      printPet (arrPets[index]);
     }
 }
